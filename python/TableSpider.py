@@ -1,6 +1,6 @@
 import scrapy
 
-class TableCrawler(scrapy.Spider):
+class TableSpider(scrapy.Spider):
     name = 'table-spider'
     start_urls = ['https://pt.wikipedia.org/wiki/ISO_4217']
 
@@ -24,11 +24,12 @@ class TableCrawler(scrapy.Spider):
 
             for idx, x in enumerate(country_flag):
                  currency_locations.append({"location": country[idx], "icon": x})
-
-            yield {
-                "code": code,  
-                "number": number,  
-                "decimal": decimal,  
-                "currency": currency,  
-                "currency_locations": currency_locations
-            }
+            
+            if code is not None:
+                yield {
+                    "code": code,  
+                    "number": number,  
+                    "decimal": decimal,  
+                    "currency": currency,  
+                    "currency_locations": currency_locations
+                }
