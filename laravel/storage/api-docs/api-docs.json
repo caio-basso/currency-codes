@@ -1,0 +1,48 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Currency API",
+        "description": "API made to recover ISO-4217 currency information - Caio Basso",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/currency": {
+            "post": {
+                "tags": [
+                    "Currency"
+                ],
+                "summary": "Get currency information",
+                "operationId": "35b85aa0f8b465d1d861a78d15adecdf",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "list": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "422": {
+                        "description": "Invalid Input"
+                    }
+                }
+            }
+        }
+    }
+}
