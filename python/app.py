@@ -8,12 +8,12 @@ import os
 
 app = Flask(__name__)
 
-@app.route('/',  methods=['POST'])
-def make_prediction():
+@app.route('/',  methods=['GET'])
+def get_currency_data():
     try:
         subprocess.run(["scrapy", "runspider", "TableSpider.py", "-O", "data.json"])
         json_file_path = os.path.join(os.path.dirname(__file__), 'data.json')
-        
+
         with open(json_file_path, 'r') as file:
             data = file.read()
 

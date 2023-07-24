@@ -8,3 +8,8 @@ services:
    - 8000:5000
   volumes:
    - .:/app
+
+networks:
+  default:
+    name: laravel_sail
+    external: true
