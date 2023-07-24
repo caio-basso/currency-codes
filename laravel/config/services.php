@@ -31,4 +31,8 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'python_api' => [
+        'host' => env('PYTHON_API_HOST'),
+        'port' => env('PYTHON_API_PORT'),
+    ]
 ];
