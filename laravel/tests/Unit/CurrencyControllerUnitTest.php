@@ -31,16 +31,16 @@ class CurrencyControllerUnitTest extends TestCase
             ->with($requestData)
             ->andReturn($filteredData);
 
-        $response = $this->json('GET', '/api/currency', $requestData);
+        $response = $this->json('POST', '/api/currency', $requestData);
 
         $response->assertStatus(200);
     }
 
-    public function testGetCurrencyShouldReturnErrorWhenArrayValueSizeDifferentFromThree()
+    public function testGetCurrencyShouldThrowErrorWhenArrayValueSizeDifferentFromThree()
     {
         $requestData = ['list' => ['USD', '2']];
 
-        $response = $this->json('GET', '/api/currency', $requestData);
+        $response = $this->json('POST', '/api/currency', $requestData);
 
         $response->assertStatus(422);
     }
@@ -55,7 +55,7 @@ class CurrencyControllerUnitTest extends TestCase
             ->with($requestData)
             ->andThrow(new NotFoundHttpException);
 
-        $response = $this->json('GET', '/api/currency', $requestData);
+        $response = $this->json('POST', '/api/currency', $requestData);
 
         $response->assertStatus(404);
     }

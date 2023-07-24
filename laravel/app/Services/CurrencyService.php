@@ -35,8 +35,8 @@ class CurrencyService
 
         foreach ($currencyList as $value) {
             $this->filteredValues[] = is_numeric($value)
-                ? $crawlerDataCollection->where('number', $value)
-                : $crawlerDataCollection->where('code', $value);
+                ? $crawlerDataCollection->where('number', $value)->values()
+                : $crawlerDataCollection->where('code', $value)->values();
         }
 
         $this->listValidator();

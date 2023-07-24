@@ -16,4 +16,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/currency', [CurrencyController::class, 'index']);
+Route::post('/currency', [CurrencyController::class, 'index']);
