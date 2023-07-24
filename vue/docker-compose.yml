@@ -1,0 +1,14 @@
+version: '3.3'
+services:
+  nuxt:
+    build: .
+    volumes:
+      - .:/app
+    ports:
+      - 3000:3000
+    command: npm run dev
+
+networks:
+  default:
+    name: laravel_sail
+    external: true
